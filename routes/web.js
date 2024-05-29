@@ -20,7 +20,8 @@ route.post("/logoutuser", UserController.logoutuser);
 //CategoryController
 route.post("/createCategory", CategoryController.createCategory);
 route.post("/viewCategory", CategoryController.viewCategory);
-route.post("/getAllCategory", CategoryController.getAllCategory);
+route.post("/displayCategory", CategoryController.categoryDisplay);
+route.get("/getAllCategory", CategoryController.getAllCategory);
 route.get("/getCategoryDetail", CategoryController.getCategoryDetail);
 
 //product

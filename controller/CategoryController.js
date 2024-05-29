@@ -58,16 +58,25 @@ class CategoryController {
       res.send(error);
     }
   };
-  static viewCategory =async(req,res)=>{
+  static viewCategory = async (req, res) => {
     try {
-      const categories =await CategoryModel.find()
-      res.status(200).json(categories)
+      const categories = await CategoryModel.find();
+      res.status(200).json(categories);
     } catch (error) {
-      res.status(500).json({message:error.message})
-      
+      res.status(500).json({ message: error.message });
     }
-
-  }
+  };
+  static categoryDisplay = async (req, res) => {
+    try {
+      const data=await CategoryModel.find()
+      res.status(200).json({
+        success: true,
+        data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 module.exports = CategoryController;

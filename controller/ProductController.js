@@ -20,7 +20,6 @@ class ProductController {
       console.log(error);
     }
   };
-
   static createProduct = async (req, res) => {
     try {
       // console.log(req.body)
@@ -53,7 +52,6 @@ class ProductController {
       console.log(error);
     }
   };
-
   static ProductDetail = async (req, res) => {
     try {
       const ProductDetail = await ProductModel.findById(req.params.id);
