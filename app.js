@@ -27,10 +27,6 @@ app.use('/api',web)
 //localhost:3300/api ye hmesha common rhega
 
 
- 
-
-
-
 //create server
 app.listen(process.env.PORT, () => {
   console.log(`start is succesfully localhost:${process.env.PORT}`);
