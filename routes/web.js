@@ -8,7 +8,7 @@ const route = express.Router();
 //Userconstoller
 
 route.get("/getalluser", UserController.getalluser);
-route.post("/getAllUser", checkUserAuth, UserController.getAllUser);
+route.get("/getAllUser", UserController.getAllUser);
 route.post("/getSingleuser/:id", checkUserAuth, UserController.getSingleuser);
 route.get("/getUserDetail", UserController.getUserDetail);
 route.post("/userinsert", UserController.userinsert);
