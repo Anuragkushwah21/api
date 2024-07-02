@@ -10,13 +10,13 @@ cloudinary.config({
 });
 
 class UserController {
-  static getuser = async (req, res) => {
-    try {
-      res.send("hello");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // static getuser = async (req, res) => {
+  //   try {
+  //     res.send("hello");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   static getAllUser = async (req, res) => {
     try {
       const data = await UserModel.find();
