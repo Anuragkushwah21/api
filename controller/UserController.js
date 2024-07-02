@@ -10,7 +10,7 @@ cloudinary.config({
 });
 
 class UserController {
-  static getalluser = async (req, res) => {
+  static getuser = async (req, res) => {
     try {
       res.send("hello");
     } catch (error) {
