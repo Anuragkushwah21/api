@@ -10,7 +10,7 @@ route.post("/userinsert", UserController.userinsert);
 route.post("/verifylogin", UserController.verifylogin);
 route.get("/getAllDisplay", UserController.getAllDisplay);
 route.post("/getSingleuser/:id", checkUserAuth, UserController.getSingleuser);
-route.get("/getUserDetail", UserController.getUserDetail);
+route.get("/getUserDetail",checkUserAuth, UserController.getUserDetail);
 route.post("/updatepassword", checkUserAuth, UserController.updatepassword);
 route.post("/updateProfile", checkUserAuth, UserController.updateProfile);
 route.post("/logoutuser", UserController.logoutuser);

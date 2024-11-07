@@ -34,7 +34,7 @@ class UserController {
   };
   static getUserDetail = async (req, res) => {
     try {
-      const { id } = req.UserData;
+      const { id } = req.Userdata;
       const data = await UserModel.findById(id);
       return res
         .status(200)
@@ -165,12 +165,10 @@ class UserController {
         const isMatched = await bcrypt.compare(oldpassword, user.password);
         // console.log(isMatched)
         if (!isMatched) {
-          res
-            .status(401)
-            .json({
-              status: "failed",
-              message: "current password is incorrect",
-            });
+          res.status(401).json({
+            status: "failed",
+            message: "current password is incorrect",
+          });
         } else {
           if (newpassword != confirmpassword) {
             res
@@ -181,12 +179,10 @@ class UserController {
             await UserModel.findByIdAndUpdate(id, {
               password: newHashPassword,
             });
-            res
-              .status(201)
-              .json({
-                status: "success",
-                message: "password updated successfully",
-              });
+            res.status(201).json({
+              status: "success",
+              message: "password updated successfully",
+            });
           }
         }
       } else {
