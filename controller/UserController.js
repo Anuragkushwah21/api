@@ -10,19 +10,15 @@ cloudinary.config({
 });
 
 class UserController {
-  static getuser = async (req, res) => {
+  static getAllDisplay = async (req, res) => {
     try {
-      res.send("hello");
+      const data = await UserModel.find(); // Sort by createdAt in descending order (-1)
+      res.status(200).json({
+        data,
+      });
     } catch (error) {
-      console.log(error);
-    }
-  };
-  static getDisplay = async (req, res) => {
-    try {
-      const data = await UserModel.find();
-      res.status(200).json({ data });
-    } catch (error) {
-      console.log(error);
+      // console.log(error)
+      res.status(400).json({ status: "failed", message: error.message });
     }
   };
   static getSingleuser = async (req, res) => {
@@ -38,13 +34,16 @@ class UserController {
   };
   static getUserDetail = async (req, res) => {
     try {
-      const data = await UserModel.findById(req.params.id);
-      res.status(200).json({
-        success: true,
-        data,
-      });
+      const { id } = req.UserData;
+      const data = await UserModel.findById(id);
+      return res
+        .status(200)
+        .json({ status: "success", message: "user details found", data });
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      return res
+        .status(500)
+        .json({ status: "failed", message: "Internal server error." });
     }
   };
   static userinsert = async (req, res) => {
