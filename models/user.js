@@ -19,6 +19,10 @@ const Userschema = new mongoose.Schema(
       type: String,
       default: "user",
     },
+    token: {
+      type: String,
+      default: "",
+    },
 
     image: {
       public_id: {

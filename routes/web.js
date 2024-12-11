@@ -14,6 +14,8 @@ route.get("/getUserDetail",checkUserAuth, UserController.getUserDetail);
 route.post("/updatepassword", checkUserAuth, UserController.updatepassword);
 route.post("/updateProfile", checkUserAuth, UserController.updateProfile);
 route.post("/logoutuser", UserController.logoutuser);
+route.post("/forgotPassword", UserController.ForgotPassword);
+route.get("/reset-password", UserController.ResetPassword);
 
 //CategoryController
 route.post("/createCategory", CategoryController.createCategory);
